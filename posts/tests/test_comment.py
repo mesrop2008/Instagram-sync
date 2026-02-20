@@ -5,7 +5,7 @@ from posts.models import Post, Comment
 from posts.services import SyncService
 
 class PostCommentsTests(APITestCase):
-    """Тесты создания комментариев"""
+    """Test comment creation"""
 
     def setUp(self):
         self.post = Post.objects.create(
@@ -18,7 +18,7 @@ class PostCommentsTests(APITestCase):
 
     @patch("posts.services.SyncService.create_comment")
     def test_create_comment(self, mock_create):
-        """ Проверка создания комментария и ответа API"""
+        """Test successful comment creation and API response"""
         mock_create.return_value = {"id": "comment_id"}
 
         url = f"/api/posts/{self.post.pk}/comment/"
@@ -29,7 +29,7 @@ class PostCommentsTests(APITestCase):
         self.assertEqual(Comment.objects.first().text, "Test comment")
         
     def test_create_comment_post_not_found(self):
-        """Проверка ошибки если поста нет в бд"""
+        """Test error when post is not found in the database"""
 
         url = f"/api/posts/999/comment/"
         response = self.client.post(url, {"text": "Test comment"}, format="json")
@@ -40,7 +40,7 @@ class PostCommentsTests(APITestCase):
 
     @patch("posts.services.SyncService.create_comment")
     def test_create_comment_instagram_error(self, mock_create):
-        """Проверка ошибки если не получилось отправить комментарий"""
+        """Test error when Instagram comment submission fails"""
 
         mock_create.side_effect = Exception("Instagram error")
 
