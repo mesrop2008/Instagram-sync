@@ -6,7 +6,7 @@ from posts.models import Post
 ACCESS_TOKEN = settings.INSTAGRAM_ACCESS_TOKEN
 
 
-class SyncService:
+class InstagramSyncService:
      """Handles Instagram API interactions and syncs posts with the local database."""
 
     @staticmethod
