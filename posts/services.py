@@ -7,7 +7,7 @@ ACCESS_TOKEN = settings.INSTAGRAM_ACCESS_TOKEN
 
 
 class SyncService:
-    """All API operations"""
+     """Handles Instagram API interactions and syncs posts with the local database."""
 
     @staticmethod
     def fetch_posts_from_instagram() -> list[dict]:
