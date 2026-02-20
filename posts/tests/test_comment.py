@@ -19,6 +19,7 @@ class PostCommentsTests(APITestCase):
     @patch("posts.services.SyncService.create_comment")
     def test_create_comment(self, mock_create):
         """Test successful comment creation and API response"""
+        
         mock_create.return_value = {"id": "comment_id"}
 
         url = f"/api/posts/{self.post.pk}/comment/"
