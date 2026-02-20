@@ -1,12 +1,11 @@
 from django.db import models
 
 class Post(models.Model):
-    instagram_id = models.CharField(max_length=50, unique=True)
-    media_type = models.CharField(max_length=30)
-    media_url = models.URLField()
-    permalink = models.URLField()
+    instagram_id = models.CharField(max_length=200, unique=True)
+    media_type = models.CharField(max_length=200)
+    media_url = models.URLField(max_length=999)
+    permalink = models.URLField(max_length=1000)
     timestamp = models.DateTimeField()
-
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
