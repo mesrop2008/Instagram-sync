@@ -1,15 +1,13 @@
 # Instagram Sync API
+Django REST API for:
+1. Syncing posts from Instagram
+2. Saving data to PostgreSQL
+3. Sending comments via the Instagram Graph API
 
-Django REST API для:
-1. синхронизации постов из Instagram
-2.  сохранения данных в PostgreSQL
-3.  отправки комментариев через Instagram Graph API
+## Running with Docker
 
-## Запуск через Docker 
-
-### 1. Создать файл `.env` в корне проекта
-
-``` bash
+### 1. Create a `.env` file in the project root
+```bash
 SECRET_KEY=your_django_secret_key
 DATABASE_NAME=instagram_db
 DATABASE_USER=postgres
@@ -19,16 +17,13 @@ DATABASE_PORT=5432
 INSTAGRAM_ACCESS_TOKEN=your_instagram_token
 ```
 
-### 2. Собрать и запустить контейнер
-
-``` bash
+### 2. Build and run the container
+```bash
 docker-compose up --build
 ```
 
-Приложение будет доступно по адресу:
-
+The application will be available at:
 http://127.0.0.1:8000/
 
-## Важно
-
-Если вы находитесь в России, Все запросы нужно делать через ВПН
+## Important
+If you are located in Russia, all requests must be made through a VPN.
